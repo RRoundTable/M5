@@ -39,53 +39,13 @@ def get_config():
     p.add_argument(
         "--n_epochs", default=10, type=int, help="전체 epochs 수",
     )
-    p.add_argument(
-        "--boosting_type", default='gbdt', type=str,
-    )
-    p.add_argument(
-        "--objective", default='tweedie', type=str,
-    )
-    p.add_argument(
-        "--tweedie_variance_poser", default=1.1, type=float,
-    )
-    p.add_argument(
-        "--metric", default='rmse', type=str,
-    )
-    p.add_argument(
-        "--subsample", default=0.5, type=float,
-    )
-    p.add_argument(
-        "--subsample_freq", default=1, type=float,
-    )
-    p.add_argument(
-        "--leaning_rate", default=3e-3, type=float, help="learning rate",
-    )
-    p.add_argument(
-        "--num_leaves", default=2 ** 11 - 1, type=int
-    )
-    p.add_argument(
-        "--min_data_in_leaf", default=2 ** 12 - 1, type=int,
-    )
-    p.add_argument(
-        "--feature_fraction", default=0.6, type=float,
-    )
-    p.add_argument(
-        "--max_bin", default=100, type=int,
-    )
-    p.add_argument(
-        "--n_estimators", default=1400, type=int,
-    )
-    p.add_argument(
-        "--boost_from_average", default=False, type=bool,
-    )
-    p.add_argument(
-        "--verbose", default=-1, type=int,
-    )
-
-
 
     p.add_argument(
-        "--wandb", action='store_true'
+        "--lr", default=1e-4, type=float, help="learning rate",
+    )
+
+    p.add_argument(
+        "--wandb", default=False, type=bool, help="Use wandb option",
     )
 
     config = p.parse_args()
